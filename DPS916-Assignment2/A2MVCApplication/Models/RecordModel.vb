@@ -25,6 +25,7 @@ Namespace A2Models
 
         Dim _userName As String
 
+        <Display(Name:="User Name")>
         Public Property UserName As String
             Get
                 Return _userName
@@ -40,10 +41,19 @@ Namespace A2Models
             End Set
         End Property
 
+        <Display(Name:="Cell Phone Numbers")>
         Public Property CellPhoneNumbers As List(Of A2Models.CellPhoneNumberModel)
+
+        <Display(Name:="Phone Numbers")>
         Public Property PhoneNumbers As List(Of A2Models.PhoneNumberModel)
+
+        <Display(Name:="Email Addresses")>
         Public Property EmailAddresses As List(Of A2Models.EmailModel)
+
+        <Display(Name:="Addresses")>
         Public Property Addresses As List(Of A2Models.AddressModel)
+
+        <Display(Name:="Notes")>
         Public Property Notes As String
 
         Public Sub New()

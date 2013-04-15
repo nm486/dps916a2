@@ -17,8 +17,10 @@ Namespace A2Models
 
         ' Primary key for AddressBook
         <Key()>
+        <Display(Name:="Address Book Id")>
         Public Property AddressBookId As Integer
 
+        <Display(Name:="Address Book Name")>
         Public Property AddressBookName As String
             Get
                 Return _addressBookName

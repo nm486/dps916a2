@@ -534,6 +534,17 @@ table {
     border: 0 none;
 }
 
+table.nicer
+{
+    width:800px;
+}
+
+table.nicer td.first, th.first
+{
+    width:500px;
+    padding-right: 0;
+}
+
 th {
     font-size: 1.2em;
     text-align: left;
