@@ -107,9 +107,13 @@ Namespace A2MVCApplication
         <HttpPost()> _
         <ActionName("Delete")> _
         Function DeleteConfirmed(ByVal id As Integer) As RedirectToRouteResult
+            Dim numOfEmails = db.Emails.Include(Function(t) t.RecordId).Count()
             Dim emailmodel As EmailModel = db.Emails.Find(id)
-            db.Emails.Remove(emailmodel)
-            db.SaveChanges()
+            If (numOfEmails > 1) Then
+                db.Emails.Remove(emailmodel)
+                db.SaveChanges()
+            End If
+            ' Consider adding a message to indicate deletion cannot be done if only 1 email.
             Return RedirectToAction("Edit", "Record", New With {.id = emailmodel.RecordId})
         End Function
 

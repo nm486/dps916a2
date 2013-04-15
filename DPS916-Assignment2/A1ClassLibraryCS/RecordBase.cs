@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace A1ClassLibraryCS
@@ -27,7 +28,14 @@ namespace A1ClassLibraryCS
             }
             set
             {
-                userName = value;
+                if (Regex.IsMatch(value, @"^[a-zA-Z.,' ]+$"))
+                {
+                    userName = value;
+                }
+                else
+                {
+                    throw new ArgumentException("User name can only have alphabet, space, period, comma, or apostrophe characters.");
+                }
             }
         }
 
