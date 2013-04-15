@@ -13,7 +13,14 @@ End Code
         <legend>AddressBookModel</legend>
 
         @Html.HiddenFor(Function(model) model.AddressBookId)
-
+        
+        <div class="editor-label">
+            @Html.LabelFor(Function(model) model.AddressBookName, "Address Book Name")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(Function(model) model.AddressBookName)
+            @Html.ValidationMessageFor(Function(model) model.AddressBookName)
+        </div>
         <p>
             <input type="submit" value="Save" />
         </p>
