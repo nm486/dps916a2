@@ -20,7 +20,11 @@ Public Class ValidatorA2
     Shared addressExpression As New System.Text.RegularExpressions.Regex("^\d+ [0-9a-zA-Z ]*[.]?$")
 
     Public Shared Function validateUserName(ByVal value As String) As Boolean
-        Return userNameExpression.IsMatch(value)
+        Dim result As Boolean = False
+        If (Not String.IsNullOrEmpty(value)) Then
+            result = userNameExpression.IsMatch(value)
+        End If
+        Return result
     End Function
 
     Public Shared Function validateAddressBookName(ByVal value As String) As Boolean

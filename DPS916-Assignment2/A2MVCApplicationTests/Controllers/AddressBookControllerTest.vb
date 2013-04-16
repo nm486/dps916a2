@@ -56,9 +56,8 @@ Imports A2MVCApplication
 
         ' Add it
         Dim result = controller.Create(validAddressBook)
-        'Dim createdBook As A2Models.AddressBookModel = DirectCast(controller.Details(0), A2Models.AddressBookModel)
-        'Assert.AreEqual(createdMessage.Text, validMessage.Text)
-        'Assert.AreEqual(createdMessage.Translations, validMessage.Translations)
+        Dim createdBook As A2Models.AddressBookModel = DirectCast(DirectCast(controller.Details, ViewResult).Model, A2Models.AddressBookModel)
+        Assert.AreEqual(createdBook.AddressBookName, validAddressBook.AddressBookName)
 
     End Sub
 

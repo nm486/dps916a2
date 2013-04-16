@@ -16,7 +16,7 @@ Namespace Migrations
             Dim jsonAddressBook As New A1ClassLibraryVB.AddressBookA2
             Dim jsonRecords As New List(Of A1ClassLibraryCS.RecordA2)
 
-            jsonAddressBook.readFromJSON("~/App_Data/seedDB.jab")
+            jsonAddressBook.readFromJSON("DPS916-Assignment2\A2MVCApplication\App_Data\seedDB.jab")
 
             Dim id As Integer = 0
 
