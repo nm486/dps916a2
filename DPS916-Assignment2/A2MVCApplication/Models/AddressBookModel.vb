@@ -20,6 +20,7 @@ Namespace A2Models
         <Display(Name:="Address Book Id")>
         Public Property AddressBookId As Integer
 
+        ' AddressBooks can now be given names to identify them in our MVC application
         <Display(Name:="Address Book Name")>
         Public Property AddressBookName As String
             Get
@@ -48,12 +49,6 @@ Namespace A2Models
             Dim mvcRecordsList As New List(Of A2Models.RecordModel)
             For Each record In newAddressBook.Records
                 Dim newRecord As A2Models.RecordModel = New A2Models.RecordModel(record, id)
-                'mvcRecordsList.Add(New A2Models.RecordModel With {
-                '                   .AddressBookId = id,
-                '                  .Addresses = record.Addresses,
-                '                  .CellPhoneNumbers = record.CellPhoneNumbers,
-                '                   .Notes = record.Notes,
-                '                   .EmailAddresses = record.EmailAddresses})
                 mvcRecordsList.Add(newRecord)
             Next
             Records = mvcRecordsList

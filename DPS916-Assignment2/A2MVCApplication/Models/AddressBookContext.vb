@@ -1,7 +1,15 @@
-﻿Imports System.Data.Entity      '* Important for Code-First
+﻿' DPS916 - Visual Basic Course
+' Coded By: Raymond Hung and Stanley Tsang
+' Assignment 2
+' AddressBookContext.vb
+' Last Modified April 8 2013
+
+Imports System.Data.Entity      '* Important for Code-First
 Imports A2MVCApplication.A2Models
 
-' Creates database with one table, for AddressBooks
+' Creates database with tables for AddressBooks, Records, Addresses, CellPhoneNumbers, Emails, and PhoneNumbers
+' One to many relationship between AddressBooks and rRecords in DB
+' One to many relationship between Records and Addresses, CellPhoneNumbers, Emails, and PhoneNumbers in DB
 Public Class AddressBookContext
     Inherits DbContext
 

@@ -1,7 +1,7 @@
 ﻿' DPS916 - Visual Basic Course
 ' Coded By: Raymond Hung and Stanley Tsang
-' Assignment 1
-' AddressModel.vb
+' Assignment 2
+' CellPhoneNumberModel.vb
 ' Last Modified April 8 2013
 
 Imports A1ClassLibraryVB

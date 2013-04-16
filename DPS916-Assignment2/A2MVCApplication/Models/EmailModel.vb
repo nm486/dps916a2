@@ -1,6 +1,6 @@
 ﻿' DPS916 - Visual Basic Course
 ' Coded By: Raymond Hung and Stanley Tsang
-' Assignment 1
+' Assignment 2
 ' EmailModel.vb
 ' Last Modified April 8 2013
 

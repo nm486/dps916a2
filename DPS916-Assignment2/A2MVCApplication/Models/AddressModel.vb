@@ -36,6 +36,7 @@ Namespace A2Models
                 Return _text
             End Get
             Set(value As String)
+                ' Call our new Validator class to validate input, then adjust ModelState as necessary
                 If (A1ClassLibraryVB.ValidatorA2.validateAddress(value) = True) Then
                     _text = value
                 Else
