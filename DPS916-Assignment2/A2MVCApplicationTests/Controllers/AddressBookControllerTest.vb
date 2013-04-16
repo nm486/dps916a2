@@ -24,6 +24,10 @@ Imports A2MVCApplication
         controller = Nothing
     End Sub
 
+    Private Sub ReseedDatabase()
+        Entity.Database.SetInitializer(New DatabaseInitializer("../../App_Data/seedDB.jab"))
+    End Sub
+
     <TestMethod> Public Sub AddressBookController_SeedFromJson()
         Using addressbooks = New AddressBookContext
             Entity.Database.SetInitializer(New DatabaseInitializer("../../App_Data/seedDB.jab"))
@@ -56,25 +60,50 @@ Imports A2MVCApplication
 
         ' Add it
         Dim result = controller.Create(validAddressBook)
-        Dim createdBook As A2Models.AddressBookModel = DirectCast(DirectCast(controller.Details, ViewResult).Model, A2Models.AddressBookModel)
+        Dim createdBook As A2Models.AddressBookModel = DirectCast(DirectCast(controller.Details(2), ViewResult).Model, A2Models.AddressBookModel)
         Assert.AreEqual(createdBook.AddressBookName, validAddressBook.AddressBookName)
 
     End Sub
 
     <TestMethod()> Public Sub Create_InvalidAddressBookTest()
+        Dim invalidAddressBook = New A2Models.AddressBookModel
+        invalidAddressBook.AddressBookName = ""
 
+        'Add it
+        Dim result = DirectCast(controller.Create(invalidAddressBook), ViewResult)
+        Assert.IsNotNull(result)
+        Assert.AreEqual(result.ViewData("Error"), "Please don't try SQL Injection. Thanks.")
     End Sub
 
     <TestMethod()> Public Sub Edit_ValidAddressBookTest()
+        Dim validAddressBook As A2Models.AddressBookModel = DirectCast(DirectCast(controller.Details(1), ViewResult).Model, A2Models.AddressBookModel)
+        validAddressBook.AddressBookName = "Changed Name"
 
+        Dim check = DirectCast(DirectCast(controller.Details(1), ViewResult).Model, A2Models.AddressBookModel)
+        Assert.AreEqual(check.AddressBookName, "Changed Name")
     End Sub
 
     <TestMethod()> Public Sub Edit_InvalidAddressBookTest()
+        Dim validAddressBook As A2Models.AddressBookModel = DirectCast(DirectCast(controller.Details(1), ViewResult).Model, A2Models.AddressBookModel)
+        Dim prevName As String = validAddressBook.AddressBookName
+        validAddressBook.AddressBookName = ""
 
+        Dim check = DirectCast(DirectCast(controller.Details(1), ViewResult).Model, A2Models.AddressBookModel)
+        Assert.AreNotEqual(check.AddressBookName, "")
+        Assert.AreEqual(check.AddressBookName, prevName)
     End Sub
 
     <TestMethod()> Public Sub Delete_AddressBookTest()
+        ' Clean database
+        Using addressbooks = New AddressBookContext
+            Entity.Database.SetInitializer(New DatabaseInitializer("../../App_Data/seedDB.jab"))
+        End Using
 
+        Dim id As Integer = DirectCast(DirectCast(controller.Index(), ViewResult).Model(0), A2Models.AddressBookModel).AddressBookId
+        controller.DeleteConfirmed(id)
+
+        Dim result = controller.Details(id)
+        Assert.IsNull(result)
     End Sub
 
 End Class

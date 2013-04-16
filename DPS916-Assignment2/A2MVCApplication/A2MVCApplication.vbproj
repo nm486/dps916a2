@@ -204,19 +204,6 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201304160443228_InitialCreate.Designer.vb">
-      <DependentUpon>201304160443228_InitialCreate.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201304160443228_InitialCreate.vb" />
-    <Compile Include="Migrations\201304160511009_Initial.Designer.vb">
-      <DependentUpon>201304160511009_Initial.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201304160511009_Initial.vb" />
-    <Compile Include="Migrations\201304160525386_AddDataAnnotationsMig.Designer.vb">
-      <DependentUpon>201304160525386_AddDataAnnotationsMig.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201304160525386_AddDataAnnotationsMig.vb" />
-    <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AddressBookContext.vb" />
     <Compile Include="Models\AddressBookModel.vb" />
     <Compile Include="Models\AddressModel.vb" />
@@ -245,15 +232,6 @@
     <Compile Include="Models\AccountModels.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201304160443228_InitialCreate.resx">
-      <DependentUpon>201304160443228_InitialCreate.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201304160511009_Initial.resx">
-      <DependentUpon>201304160511009_Initial.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201304160525386_AddDataAnnotationsMig.resx">
-      <DependentUpon>201304160525386_AddDataAnnotationsMig.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
