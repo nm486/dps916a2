@@ -15,7 +15,7 @@ Imports A2MVCApplication
     Public Sub Initialize()
         AppDomain.CurrentDomain.SetData("DataDirectory", Environment.CurrentDirectory)
         ' Debug line
-        Console.WriteLine("DataDirectory is: {0}", Environment.CurrentDirectory)
+        'Console.WriteLine("DataDirectory is: {0}", Environment.CurrentDirectory)
         controller = New AddressBookController()
     End Sub
 
@@ -32,16 +32,50 @@ Imports A2MVCApplication
         End Using
     End Sub
 
-    <TestMethod()> Public Sub Index()
-        ' Arrange
-        Dim controller As New AddressBookController()
-
-        ' Act
+    <TestMethod()> Public Sub AddressBookController_IndexTest()
+        
         Dim result As ViewResult = DirectCast(controller.Index(), ViewResult)
 
         ' Assert
-        Dim viewData As ViewDataDictionary = result.ViewData
-        Assert.AreEqual("Modify this template to jump-start your ASP.NET MVC application.", viewData("Message"))
+        Assert.IsNotNull(result)
+        Assert.AreEqual(result.ViewData("IndexMilestone"), "Address Book Index")
+    End Sub
+
+    <TestMethod()> Public Sub AddressBookController_FirstValueCheck()
+        Dim addressBook As A2Models.AddressBookModel = DirectCast(controller.Index(), ViewResult).Model(0)
+
+        Assert.IsNotNull(addressBook)
+        Assert.IsNotNull(addressBook.AddressBookId)
+        Assert.IsNotNull(addressBook.AddressBookName)
+
+    End Sub
+
+    <TestMethod()> Public Sub Create_ValidAddressBookTest()
+        Dim validAddressBook = New A2Models.AddressBookModel
+        validAddressBook.AddressBookName = "DPS916 Address Book"
+
+        ' Add it
+        Dim result = controller.Create(validAddressBook)
+        'Dim createdBook As A2Models.AddressBookModel = DirectCast(controller.Details(0), A2Models.AddressBookModel)
+        'Assert.AreEqual(createdMessage.Text, validMessage.Text)
+        'Assert.AreEqual(createdMessage.Translations, validMessage.Translations)
+
+    End Sub
+
+    <TestMethod()> Public Sub Create_InvalidAddressBookTest()
+
+    End Sub
+
+    <TestMethod()> Public Sub Edit_ValidAddressBookTest()
+
+    End Sub
+
+    <TestMethod()> Public Sub Edit_InvalidAddressBookTest()
+
+    End Sub
+
+    <TestMethod()> Public Sub Delete_AddressBookTest()
+
     End Sub
 
 End Class
