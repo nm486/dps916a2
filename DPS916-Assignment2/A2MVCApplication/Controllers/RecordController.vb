@@ -24,6 +24,7 @@ Namespace A2MVCApplication
             If IsNothing(recordmodel) Then
                 Return HttpNotFound()
             End If
+            ' Populate all properties of current record from DB
             Dim emails = dbCopy.Emails.Where(Function(e) e.RecordId = recordmodel.RecordId).ToList()
             recordmodel.EmailAddresses = emails
 
@@ -94,6 +95,7 @@ Namespace A2MVCApplication
         Function Edit(ByVal recordmodel As RecordModel) As ActionResult
             If ModelState.IsValid Then
                 Dim dbCopy = New AddressBookContext
+                ' Need to repopulate the remaining properties of the record before trying to update the DB otherwise we get errors
                 If recordmodel.CellPhoneNumbers.Count = 0 Then
                     Dim cellPhoneNumbers = dbCopy.CellPhoneNumbers.Where(Function(e) e.RecordId = recordmodel.RecordId).ToList()
                     recordmodel.CellPhoneNumbers = cellPhoneNumbers
