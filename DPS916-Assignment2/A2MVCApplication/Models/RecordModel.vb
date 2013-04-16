@@ -25,6 +25,7 @@ Namespace A2Models
 
         Dim _userName As String
 
+        <Required()>
         <Display(Name:="User Name")>
         Public Property UserName As String
             Get

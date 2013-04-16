@@ -31,6 +31,7 @@ Namespace A2Models
             cellphoneNumberState = New ModelStateDictionary
         End Sub
 
+        <Required()>
         Public Property Text As String
             Get
                 Return _text
