@@ -12,6 +12,7 @@ Namespace A2MVCApplication
 
         Function Index() As ActionResult
             Dim addresses = db.Addresses.Include(Function(a) a.Record)
+            ViewData("IndexMilestone") = "Address Index"
             Return View(addresses.ToList())
         End Function
 

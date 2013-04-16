@@ -12,6 +12,7 @@ Namespace A2MVCApplication
 
         Function Index() As ActionResult
             Dim emails = db.Emails.Include(Function(e) e.Record)
+            ViewData("IndexMilestone") = "Email Index"
             Return View(emails.ToList())
         End Function
 

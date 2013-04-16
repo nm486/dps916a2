@@ -12,6 +12,7 @@ Namespace A2MVCApplication
 
         Function Index() As ActionResult
             Dim phonenumbers = db.PhoneNumbers.Include(Function(p) p.Record)
+            ViewData("IndexMilestone") = "Phone Number Index"
             Return View(phonenumbers.ToList())
         End Function
 
