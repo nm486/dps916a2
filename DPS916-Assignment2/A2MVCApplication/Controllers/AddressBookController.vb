@@ -18,6 +18,7 @@ Namespace A2MVCApplication
                 Dim records = dbCopy.Records.Where(Function(r) r.AddressBookId = id).ToList()
                 addressBook.Records = records
             Next
+            ViewData("IndexMilestone") = "Address Book Index"
             Return View(db.AddressBooks.ToList())
         End Function
 

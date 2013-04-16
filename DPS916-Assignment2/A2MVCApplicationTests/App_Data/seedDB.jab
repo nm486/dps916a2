@@ -1,0 +1,41 @@
+[
+  {
+    "PhoneNumbers": [
+      "(647) 285-5979"
+    ],
+    "Addresses": [
+      "37 Tangmere Rd"
+    ],
+    "Notes": "First Record.",
+    "UserName": "Jack Lum",
+    "EmailAddresses": [
+      "jlum@senecacollege.on.ca"
+    ]
+  },
+  {
+    "PhoneNumbers": [
+      "(555) 555-5555"
+    ],
+    "Addresses": [
+      "123 Fake Street"
+    ],
+    "Notes": "Third Record.",
+    "UserName": "Raymond Hung",
+    "EmailAddresses": [
+      "rhung4@myseneca.ca"
+    ]
+  },
+  {
+    "PhoneNumbers": [
+      "(416) 446-5979"
+    ],
+    "Addresses": [
+      "71 Farmstead Rd"
+    ],
+    "Notes": "Second Record.",
+    "UserName": "Stanley Tsang",
+    "EmailAddresses": [
+      "stsang1@myseneca.ca"
+    ]
+  }
+]
