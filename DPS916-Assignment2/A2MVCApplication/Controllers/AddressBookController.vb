@@ -50,7 +50,7 @@ Namespace A2MVCApplication
 
         <HttpPost()> _
         Function Create(ByVal addressbookmodel As AddressBookModel) As ActionResult
-            If ModelState.IsValid Then
+            If addressbookmodel.ModelState.IsValid Then
                 db.AddressBooks.Add(addressbookmodel)
                 db.SaveChanges()
                 Return RedirectToAction("Index")

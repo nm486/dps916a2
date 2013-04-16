@@ -31,7 +31,6 @@ Namespace A2Models
             Text = emailString
         End Sub
 
-        <Required()>
         Public Property Text As String
             Get
                 Return _text

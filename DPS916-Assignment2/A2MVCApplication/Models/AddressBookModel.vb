@@ -21,7 +21,6 @@ Namespace A2Models
         Public Property AddressBookId As Integer
 
         ' AddressBooks can now be given names to identify them in our MVC application
-        <Required()>
         <Display(Name:="Address Book Name")>
         Public Property AddressBookName As String
             Get

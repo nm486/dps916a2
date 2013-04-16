@@ -28,23 +28,43 @@ Public Class ValidatorA2
     End Function
 
     Public Shared Function validateAddressBookName(ByVal value As String) As Boolean
-        Return Not addressBookNameExpression.IsMatch(value)
+        Dim result As Boolean = True
+        If (Not String.IsNullOrEmpty(value)) Then
+            result = addressBookNameExpression.IsMatch(value)
+        End If
+        Return Not result
     End Function
 
     Public Shared Function validateEmail(ByVal value As String) As Boolean
-        Return emailFormatExpression1.IsMatch(value) Or emailFormatExpression2.IsMatch(value)
+        Dim result As Boolean = False
+        If (Not String.IsNullOrEmpty(value)) Then
+            result = emailFormatExpression1.IsMatch(value) Or emailFormatExpression2.IsMatch(value)
+        End If
+        Return result
     End Function
 
     Public Shared Function validatePhone(ByVal value As String) As Boolean
-        Return phoneExpression1.IsMatch(value) Or phoneExpression2.IsMatch(value)
+        Dim result As Boolean = False
+        If (Not String.IsNullOrEmpty(value)) Then
+            result = phoneExpression1.IsMatch(value) Or phoneExpression2.IsMatch(value)
+        End If
+        Return result
     End Function
 
     Public Shared Function validateAddress(ByVal value As String) As Boolean
-        Return addressExpression.IsMatch(value)
+        Dim result As Boolean = False
+        If (Not String.IsNullOrEmpty(value)) Then
+            result = addressExpression.IsMatch(value)
+        End If
+        Return result
     End Function
 
     Public Shared Function validateCellPhoneNumber(ByVal value As String) As Boolean
-        Return cellPhoneExpression.IsMatch(value)
+        Dim result As Boolean = False
+        If (Not String.IsNullOrEmpty(value)) Then
+            result = cellPhoneExpression.IsMatch(value)
+        End If
+        Return result
     End Function
 End Class
 
