@@ -50,7 +50,8 @@ Namespace A2MVCApplication
 
         <HttpPost()> _
         Function Create(ByVal addressbookmodel As AddressBookModel) As ActionResult
-            If addressbookmodel.ModelState.IsValid Then
+            ModelState.Merge(addressbookmodel.ModelState)
+            If ModelState.IsValid Then
                 db.AddressBooks.Add(addressbookmodel)
                 db.SaveChanges()
                 Return RedirectToAction("Index")
@@ -78,6 +79,7 @@ Namespace A2MVCApplication
 
         <HttpPost()> _
         Function Edit(ByVal addressbookmodel As AddressBookModel) As ActionResult
+            ModelState.Merge(addressbookmodel.ModelState)
             If ModelState.IsValid Then
                 db.Entry(addressbookmodel).State = EntityState.Modified
                 db.SaveChanges()

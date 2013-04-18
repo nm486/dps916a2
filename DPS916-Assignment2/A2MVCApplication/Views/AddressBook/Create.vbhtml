@@ -7,7 +7,6 @@ End Code
 <h2>Create a New Address Book</h2>
 
 @Using Html.BeginForm()
-    @Html.ValidationSummary(True)
 
     @<fieldset>
         <legend>AddressBookModel</legend>

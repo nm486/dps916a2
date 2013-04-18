@@ -100,10 +100,13 @@ Imports A2MVCApplication
         End Using
 
         Dim id As Integer = DirectCast(DirectCast(controller.Index(), ViewResult).Model(0), A2Models.AddressBookModel).AddressBookId
+        controller.Delete(id)
         controller.DeleteConfirmed(id)
 
         Dim result = controller.Details(id)
-        Assert.IsNull(result)
+        Assert.IsTrue(result.GetType().Name.Equals("HttpNotFoundResult"))
     End Sub
+
+
 
 End Class

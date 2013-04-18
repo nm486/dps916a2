@@ -45,8 +45,9 @@ Namespace A2MVCApplication
         ' GET: /Record/Create
 
         Function Create(Optional ByVal id As Integer = Nothing) As ActionResult
+            ViewData("id") = id
             ViewBag.AddressBookId = New SelectList(db.AddressBooks, "AddressBookId", "AddressBookId")
-            Return View(id)
+            Return View()
         End Function
 
         '
@@ -54,10 +55,11 @@ Namespace A2MVCApplication
 
         <HttpPost()> _
         Function Create(ByVal recordmodel As RecordModel) As ActionResult
+            ModelState.Merge(recordmodel.ModelState)
             If ModelState.IsValid Then
                 db.Records.Add(recordmodel)
                 db.SaveChanges()
-                Return RedirectToAction("Index")
+                Return RedirectToAction("Details", "AddressBook", New With {.id = recordmodel.AddressBookId})
             End If
             ViewBag.AddressBookId = New SelectList(db.AddressBooks, "AddressBookId", "AddressBookId", recordmodel.AddressBookId)
             Return View(recordmodel)
@@ -94,6 +96,7 @@ Namespace A2MVCApplication
 
         <HttpPost()> _
         Function Edit(ByVal recordmodel As RecordModel) As ActionResult
+            ModelState.Merge(recordmodel.ModelState)
             If ModelState.IsValid Then
                 Dim dbCopy = New AddressBookContext
                 ' Need to repopulate the remaining properties of the record before trying to update the DB otherwise we get errors
@@ -115,7 +118,7 @@ Namespace A2MVCApplication
                 End If
                 db.Entry(recordmodel).State = EntityState.Modified
                 db.SaveChanges()
-                Return RedirectToAction("Index")
+                Return RedirectToAction("Details", "AddressBook", New With {.id = recordmodel.AddressBookId})
             End If
 
             ViewBag.AddressBookId = New SelectList(db.AddressBooks, "AddressBookId", "AddressBookId", recordmodel.AddressBookId)
@@ -142,7 +145,7 @@ Namespace A2MVCApplication
             Dim recordmodel As RecordModel = db.Records.Find(id)
             db.Records.Remove(recordmodel)
             db.SaveChanges()
-            Return RedirectToAction("Index")
+            Return RedirectToAction("Details", "AddressBook", New With {.id = recordmodel.AddressBookId})
         End Function
 
         Protected Overrides Sub Dispose(ByVal disposing As Boolean)

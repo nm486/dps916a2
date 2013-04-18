@@ -7,20 +7,12 @@ End Code
 <h2>Edit</h2>
 
 @Using Html.BeginForm()
-    @Html.ValidationSummary(True)
 
     @<fieldset>
         <legend>EmailModel</legend>
 
         @Html.HiddenFor(Function(model) model.EmailId)
-
-        <div class="editor-label">
-            @Html.LabelFor(Function(model) model.RecordId, "Record")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("RecordId", String.Empty)
-            @Html.ValidationMessageFor(Function(model) model.RecordId)
-        </div>
+        @Html.HiddenFor(Function(model) model.RecordId)
 
         <div class="editor-label">
             @Html.LabelFor(Function(model) model.Text)
@@ -37,7 +29,7 @@ End Code
 End Using
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Record", "Edit", "Record", New With {.id = Model.RecordId}, Nothing)
 </div>
 
 @Section Scripts

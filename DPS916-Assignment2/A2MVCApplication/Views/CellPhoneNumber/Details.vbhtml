@@ -26,5 +26,5 @@ End Code
 <p>
 
     @Html.ActionLink("Edit", "Edit", New With {.id = Model.CellPhoneId}) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Record", "Details", "Record", New With {.id = Model.RecordId}, Nothing)
 </p>

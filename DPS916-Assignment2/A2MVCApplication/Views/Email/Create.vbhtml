@@ -18,6 +18,7 @@ End Code
         </div>
         <div class="editor-field">
             @Html.EditorFor(Function(model) model.Text)
+            <br />
             @Html.ValidationMessageFor(Function(model) model.Text)
         </div>
 

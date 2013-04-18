@@ -9,16 +9,7 @@ End Code
 <fieldset>
     <legend>AddressModel</legend>
 
-    <div class="display-label">
-        @Html.DisplayNameFor(Function(model) model.Record.UserName)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(Function(model) model.Record.UserName)
-    </div>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(Function(model) model.Text)
-    </div>
+    <br />
     <div class="display-field">
         @Html.DisplayFor(Function(model) model.Text)
     </div>

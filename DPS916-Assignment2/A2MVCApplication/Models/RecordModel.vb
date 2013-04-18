@@ -35,7 +35,7 @@ Namespace A2Models
                     If (A1ClassLibraryVB.ValidatorA2.validateUserName(value) = True) Then
                         _userName = value
                     Else
-                        recordState.AddModelError("UserName", "User Name is of incorrect format")
+                        recordState.AddModelError("UserName", "Alphabet, space, period, commas, and apostrophes allowed only.")
                     End If
                 End If
             End Set

@@ -7,7 +7,6 @@ End Code
 <h2>Edit</h2>
 
 @Using Html.BeginForm()
-    @Html.ValidationSummary(True)
 
     @<fieldset>
         <legend>AddressBookModel</legend>
@@ -28,7 +27,7 @@ End Code
 End Using
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Details", "AddressBook", New With {.id = Model.AddressBookId}, Nothing)
 </div>
 
 @Section Scripts

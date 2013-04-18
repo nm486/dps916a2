@@ -7,21 +7,13 @@ End Code
 <h2>Edit</h2>
 
 @Using Html.BeginForm()
-    @Html.ValidationSummary(True)
 
     @<fieldset>
         <legend>CellPhoneNumberModel</legend>
 
         @Html.HiddenFor(Function(model) model.CellPhoneId)
-
-        <div class="editor-label">
-            @Html.LabelFor(Function(model) model.RecordId, "Record")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("RecordId", String.Empty)
-            @Html.ValidationMessageFor(Function(model) model.RecordId)
-        </div>
-
+        @Html.HiddenFor(Function(model) model.RecordId)
+      
         <div class="editor-label">
             @Html.LabelFor(Function(model) model.Text)
         </div>
@@ -29,7 +21,7 @@ End Code
             @Html.EditorFor(Function(model) model.Text)
             @Html.ValidationMessageFor(Function(model) model.Text)
         </div>
-
+        <br /> All that is required are the numbers - no special characters needed.  Phone numbers are automatically formatted.
         <p>
             <input type="submit" value="Save" />
         </p>
@@ -37,7 +29,7 @@ End Code
 End Using
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Record", "Edit", "Record", New With {.id = Model.RecordId}, Nothing)
 </div>
 
 @Section Scripts

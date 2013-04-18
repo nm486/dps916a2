@@ -10,16 +10,7 @@ End Code
 <fieldset>
     <legend>CellPhoneNumberModel</legend>
 
-    <div class="display-label">
-        @Html.DisplayNameFor(Function(model) model.Record.UserName)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(Function(model) model.Record.UserName)
-    </div>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(Function(model) model.Text)
-    </div>
+    <br />
     <div class="display-field">
         @Html.DisplayFor(Function(model) model.Text)
     </div>
@@ -27,6 +18,6 @@ End Code
 @Using Html.BeginForm()
     @<p>
         <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Back to Record", "Edit", "Record", New With {.id = Model.RecordId}, Nothing)
     </p>
 End Using

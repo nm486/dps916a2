@@ -39,7 +39,7 @@ Namespace A2Models
                 If (A1ClassLibraryVB.ValidatorA2.validateEmail(value) = True) Then
                     _text = value
                 Else
-                    emailState.AddModelError("Text", "Email is of incorrect format.")
+                    emailState.AddModelError("Text", "Must be of format someone@somewhere.com, some.one.@some.where.com.  com/ca/org/net/biz/info domains accepted.")
                 End If
             End Set
         End Property

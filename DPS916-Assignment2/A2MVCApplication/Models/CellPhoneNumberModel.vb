@@ -31,6 +31,7 @@ Namespace A2Models
             cellphoneNumberState = New ModelStateDictionary
         End Sub
 
+        <Display(Name:="Number")>
         Public Property Text As String
             Get
                 Return _text
@@ -39,7 +40,7 @@ Namespace A2Models
                 If (A1ClassLibraryVB.ValidatorA2.validateCellPhoneNumber(value) = True) Then
                     _text = value
                 Else
-                    cellphoneNumberState.AddModelError("Text", "Cell Phone number is of incorrect format.")
+                    cellphoneNumberState.AddModelError("Text", "Cell Phone number is of incorrect format.  Must be 416/647/905 area code, and 7 digits.")
                 End If
             End Set
         End Property

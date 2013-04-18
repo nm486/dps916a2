@@ -20,7 +20,7 @@ End Code
             @Html.EditorFor(Function(model) model.Text)
             @Html.ValidationMessageFor(Function(model) model.Text)
         </div>
-
+        <br /> All that is required are the numbers - no special characters needed.  Phone numbers are automatically formatted.
         <p>
             <input type="submit" value="Create" />
         </p>

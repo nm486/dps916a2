@@ -28,14 +28,7 @@ namespace A1ClassLibraryCS
             }
             set
             {
-                if (Regex.IsMatch(value, @"^[a-zA-Z.,' ]+$"))
-                {
-                    userName = value;
-                }
-                else
-                {
-                    throw new ArgumentException("User name can only have alphabet, space, period, comma, or apostrophe characters.");
-                }
+                userName = value;
             }
         }
 

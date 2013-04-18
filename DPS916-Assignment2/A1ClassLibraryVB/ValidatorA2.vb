@@ -9,7 +9,7 @@ Imports System.Text.RegularExpressions
 Public Class ValidatorA2
 
     ' UserName, Email, and Cell Phone formats New for Assignment 2
-    Shared userNameExpression As New System.Text.RegularExpressions.Regex("^([ \u00c0-\u01ffa-zA-Z'\-])+$")
+    Shared userNameExpression As New System.Text.RegularExpressions.Regex("^([\u00c0-\u01ffa-zA-Z'\-,. ])+$")
     Shared emailFormatExpression1 As New System.Text.RegularExpressions.Regex("^([0-9a-zA-Z]+@[0-9a-zA-Z]+.(com|ca|org|net|biz|info))$")
     Shared emailFormatExpression2 As New System.Text.RegularExpressions.Regex("^([0-9a-zA-Z]+@[0-9a-zA-Z]+.[0-9a-zA-Z]+.(com|ca|org|net|biz|info))$")
     Shared cellPhoneExpression As New System.Text.RegularExpressions.Regex("^(416|647|905)\d{7}$")
