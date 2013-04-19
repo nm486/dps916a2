@@ -38,7 +38,15 @@ Namespace A2Models
             End Get
             Set(value As String)
                 If (A1ClassLibraryVB.ValidatorA2.validateCellPhoneNumber(value) = True) Then
-                    _text = value
+                    Dim check As New Regex("[0-9]")
+                    Dim filtered As String = ""
+                    ' Remove all unnecessary characters
+                    For Each letter In value
+                        If (check.IsMatch(letter.ToString())) Then
+                            filtered += letter
+                        End If
+                    Next
+                    _text = "(" + filtered.Substring(0, 3) + ") " + filtered.Substring(3, 3) + "-" + filtered.Substring(6)
                 Else
                     cellphoneNumberState.AddModelError("Text", "Cell Phone number is of incorrect format.  Must be 416/647/905 area code, and 7 digits.")
                 End If
