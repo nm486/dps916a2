@@ -13,6 +13,7 @@ Public Class ValidatorA2
     Shared emailFormatExpression1 As New System.Text.RegularExpressions.Regex("^([0-9a-zA-Z]+@[0-9a-zA-Z]+.(com|ca|org|net|biz|info))$")
     Shared emailFormatExpression2 As New System.Text.RegularExpressions.Regex("^([0-9a-zA-Z]+@[0-9a-zA-Z]+.[0-9a-zA-Z]+.(com|ca|org|net|biz|info))$")
     Shared cellPhoneExpression As New System.Text.RegularExpressions.Regex("^(416|647|905)\d{7}$")
+    Shared cellPhoneExpression2 As New System.Text.RegularExpressions.Regex("^\((416|647|905)\)[ ]?\d{3}[ -]\d{4}$")
     Shared addressBookNameExpression As New System.Text.RegularExpressions.Regex("/\w*((\%27)|(\'))((\%6F)|o|(\%4F))((\%72)|r|(\%52))/ix ")
 
     Shared phoneExpression1 As New System.Text.RegularExpressions.Regex("^\d{10}$")
@@ -62,7 +63,7 @@ Public Class ValidatorA2
     Public Shared Function validateCellPhoneNumber(ByVal value As String) As Boolean
         Dim result As Boolean = False
         If (Not String.IsNullOrEmpty(value)) Then
-            result = cellPhoneExpression.IsMatch(value)
+            result = cellPhoneExpression.IsMatch(value) Or cellPhoneExpression2.IsMatch(value)
         End If
         Return result
     End Function
