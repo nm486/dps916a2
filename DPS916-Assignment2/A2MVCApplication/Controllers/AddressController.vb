@@ -13,6 +13,7 @@ Namespace A2MVCApplication
         Function Index() As ActionResult
             Dim addresses = db.Addresses.Include(Function(a) a.Record)
             ViewData("IndexMilestone") = "Address Index"
+            ViewData("Message") = "Modify this template to jump-start your ASP.NET MVC application."
             Return View(addresses.ToList())
         End Function
 
